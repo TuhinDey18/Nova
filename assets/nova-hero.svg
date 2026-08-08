@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-labelledby="title desc">
+  <title id="title">N.O.V.A. — Networked Observation and Visual Analytics</title>
+  <desc id="desc">An animated visual trace travels through a network of observation nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1021"/><stop offset=".55" stop-color="#122a55"/><stop offset="1" stop-color="#2a155e"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .grid{stroke:#c4d5ff;stroke-opacity:.12;stroke-width:1}.route{fill:none;stroke:url(#line);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}.node{fill:#101c3a;stroke:#7dd3fc;stroke-width:1.4}.label{font-family:Arial,Helvetica,sans-serif;fill:#fff}.sub{font-family:Arial,Helvetica,sans-serif;fill:#cbd5e1;letter-spacing:3px}.motion{fill:#fff;filter:url(#soft)}@media (prefers-reduced-motion:reduce){.motion{display:none}}
+    </style>
+  </defs>
+  <rect width="1200" height="260" rx="18" fill="url(#bg)"/>
+  <g class="grid"><path d="M0 43H1200M0 86H1200M0 129H1200M0 172H1200M0 215H1200M80 0V260M160 0V260M240 0V260M960 0V260M1040 0V260M1120 0V260"/></g>
+  <g opacity=".65"><path class="route" d="M55 183H172L225 130H308L378 183H485M730 183H828L878 123H968L1023 183H1145"/><path class="route" d="M138 202V222H258V202M860 202V222H1085V202"/></g>
+  <g>
+    <rect class="node" x="40" y="166" width="38" height="34" rx="6"/><rect class="node" x="154" y="166" width="38" height="34" rx="6"/><rect class="node" x="289" y="113" width="38" height="34" rx="6"/><rect class="node" x="466" y="166" width="38" height="34" rx="6"/>
+    <rect class="node" x="712" y="166" width="38" height="34" rx="6"/><rect class="node" x="809" y="166" width="38" height="34" rx="6"/><rect class="node" x="949" y="106" width="38" height="34" rx="6"/><rect class="node" x="1125" y="166" width="38" height="34" rx="6"/>
+  </g>
+  <g class="motion">
+    <circle r="5"><animateMotion path="M55 183H172L225 130H308L378 183H485" dur="3.4s" repeatCount="indefinite"/></circle>
+    <circle r="5"><animateMotion path="M730 183H828L878 123H968L1023 183H1145" dur="3.4s" begin="1.7s" repeatCount="indefinite"/></circle>
+  </g>
+  <text class="sub" x="600" y="63" text-anchor="middle" font-size="12">NETWORKED OBSERVATION &amp; VISUAL ANALYTICS</text>
+  <text class="label" x="600" y="126" text-anchor="middle" font-size="55" font-weight="700">N.O.V.A.</text>
+  <text class="label" x="600" y="155" text-anchor="middle" font-size="16" fill-opacity=".85">Trace visually. Investigate confidently.</text>
+</svg>
