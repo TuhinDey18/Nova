@@ -1,4 +1,4 @@
-# N.O.V.A. — Networked Observation & Visual Analytics
+# [N.O.V.A.](https://github.com/TuhinDey18/ECHO) — Networked Observation & Visual Analytics
 
 <p align="center">
   <strong>Upload one image. Search every camera. Reconstruct the journey.</strong>
@@ -12,6 +12,7 @@
   <img src="https://img.shields.io/badge/FAISS-Vector%20Search-009688" alt="FAISS" />
   <img src="https://img.shields.io/badge/Ollama-Local%20LLM-111827" alt="Ollama" />
   <img src="https://img.shields.io/badge/SQLite-Audit%20Store-003B57?logo=sqlite&logoColor=white" alt="SQLite" />
+  <img src="https://img.shields.io/badge/GitHub-TuhinDey18-181717?logo=github&logoColor=white" alt="GitHub" />
 </p>
 
 ---
@@ -37,7 +38,7 @@ The goal is to transform a large, fragmented set of camera feeds into a small se
 
 <p align="center">
   <a href="assets/nova-system.svg">
-    <img src="assets/nova-system.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
+    <img src="assets/nova-system.svg" width="760" alt="N.O.V.A. system architecture: offline CCTV indexing (YOLO detection, crops, CLIP embeddings, FAISS index), the live investigation pipeline (SearchEngine, InvestigationEngine, ReportGenerator) rendered by the Streamlit console, the Ollama-backed debrief with footage playback, data stores, and the demo/live failsafe modes." />
   </a>
 </p>
 
@@ -51,7 +52,7 @@ The goal is to transform a large, fragmented set of camera feeds into a small se
 ### 1. Clone and create an environment
 
 ```bash
-git clone https://github.com/<your-username>/ECHO.git
+git clone https://github.com/TuhinDey18/ECHO.git
 cd ECHO
 
 python -m venv venv
@@ -148,8 +149,8 @@ runs/               # YOLO annotated video output
 ## Workflow diagram
 
 <p align="center">
-  <a href="assets/nova-workflowdg.svg">
-    <img src="assets/nova-workflowdg.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
+  <a href="assets/nova-dataflowdg.svg">
+    <img src="assets/nova-dataflowdg.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
   </a>
 </p>
 
