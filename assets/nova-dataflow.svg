@@ -1,148 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
-  <title id="title">N.O.V.A. animated data-flow diagram</title>
-  <desc id="desc">CCTV videos are detected, cropped, embedded and indexed. A query image is embedded, searched against the index, then used to produce a timeline, evidence dashboard and assistant response.</desc>
-  <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#111827" />
-      <stop offset="1" stop-color="#172554" />
-    </linearGradient>
-    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8B5CF6" />
-      <stop offset="1" stop-color="#6366F1" />
-    </linearGradient>
-    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#22D3EE" />
-      <stop offset="1" stop-color="#06B6D4" />
-    </linearGradient>
-    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#34D399" />
-      <stop offset="1" stop-color="#10B981" />
-    </linearGradient>
-    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <marker id="arrow-violet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#A78BFA" /></marker>
-    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#22D3EE" /></marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#34D399" /></marker>
-    <style>
-      .heading { font-family: Arial, Helvetica, sans-serif; font-weight: 700; fill: #F8FAFC; }
-      .label { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 23px; fill: #F8FAFC; text-anchor: middle; }
-      .detail { font-family: Arial, Helvetica, sans-serif; font-size: 16px; fill: #CBD5E1; text-anchor: middle; }
-      .section { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 3px; fill: #A5B4FC; }
-      .node { stroke: #475569; stroke-width: 2; }
-      .flow { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 12 14; animation: dash 1.5s linear infinite; }
-      .pulse { animation: pulse 2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-      @keyframes dash { to { stroke-dashoffset: -52; } }
-      @keyframes pulse { 50% { transform: scale(1.045); } }
-      @media (prefers-reduced-motion: reduce) { .flow, .pulse { animation: none; } }
-    </style>
-  </defs>
 
-  <rect width="1200" height="1200" rx="48" fill="url(#background)" />
-  <path d="M65 85 H1135" stroke="#334155" stroke-width="2" />
-  <text x="80" y="60" class="heading" font-size="33">N.O.V.A.</text>
-  <text x="300" y="59" class="heading" font-size="19" fill="#94A3B8">NETWORKED OBSERVATION &amp; VISUAL ANALYTICS</text>
-  <circle cx="1110" cy="52" r="8" fill="#34D399" filter="url(#glow)"><animate attributeName="opacity" values="1;.35;1" dur="1.5s" repeatCount="indefinite" /></circle>
-  <text x="1082" y="58" class="detail" font-size="13">LIVE FLOW</text>
-
-  <text x="95" y="145" class="section">OFFLINE VIDEO INDEXING</text>
-  <text x="95" y="698" class="section">LIVE INVESTIGATION</text>
-
-  <!-- Indexing flow -->
-  <path d="M300 270 H390" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
-  <path d="M590 270 H680" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
-  <path d="M880 270 H970" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
-  <path d="M1050 350 V470 H865" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
-  <path d="M490 350 V430" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
-
-  <g class="pulse">
-    <rect x="100" y="190" width="200" height="160" rx="24" fill="#1E1B4B" class="node" />
-    <rect x="100" y="190" width="200" height="9" rx="5" fill="url(#violet)" />
-    <text x="200" y="252" class="label">CCTV Videos</text>
-    <text x="200" y="281" class="detail">camera feeds</text>
-    <text x="200" y="307" class="detail">.mp4 evidence</text>
+  <g id="video">
+    <rect class="box" x="249" y="16" width="286" height="70" rx="8" fill="#e8f2ff" stroke="#0a58a6"/>
+    <path class="icon" stroke="#0a58a6" d="M280 38h21a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6h-21a6 6 0 0 1-6-6V44a6 6 0 0 1 6-6zm27 10 12-7v28l-12-7"/>
+    <text class="node-text" x="406" y="57">Video Capture</text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes="0;.06;.09;.15" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.2s">
-    <rect x="390" y="190" width="200" height="160" rx="24" fill="#1E1B4B" class="node" />
-    <rect x="390" y="190" width="200" height="9" rx="5" fill="url(#violet)" />
-    <text x="490" y="245" class="label">YOLOv11</text>
-    <text x="490" y="276" class="detail">detection +</text>
-    <text x="490" y="302" class="detail">object tracking</text>
+  <path class="link" d="M392 86V114" marker-end="url(#arrow)"/>
+  <g id="detection">
+    <rect class="box" x="249" y="119" width="286" height="72" rx="8" fill="#edf9e9" stroke="#25722a"/>
+    <path class="icon" stroke="#25722a" d="M298 133v9m0 27v9m-22-22h9m27 0h9M298 141a15 15 0 1 0 0 30 15 15 0 0 0 0-30zm0 11v8m-4-4h8"/>
+    <text class="node-text" x="407" y="155">Detection<tspan x="407" dy="23">(YOLOv11)</tspan></text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".06;.13;.16;.22" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.4s">
-    <rect x="680" y="190" width="200" height="160" rx="24" fill="#1E1B4B" class="node" />
-    <rect x="680" y="190" width="200" height="9" rx="5" fill="url(#violet)" />
-    <text x="780" y="252" class="label">Object Crops</text>
-    <text x="780" y="281" class="detail">frame evidence</text>
-    <text x="780" y="307" class="detail">+ metadata</text>
+  <path class="link" d="M392 191V222" marker-end="url(#arrow)"/>
+  <g id="crop">
+    <rect class="box" x="249" y="228" width="286" height="72" rx="8" fill="#fff8e8" stroke="#d88116"/>
+    <path class="icon" stroke="#d66d0b" d="M289 246h-11v11m0 15v11h11m15 0h10v-11m0-15v-11h-10M285 252h22v25h-22z"/>
+    <text class="node-text" x="407" y="271">Cropping / Embedding</text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".13;.20;.23;.29" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.6s">
-    <rect x="970" y="190" width="160" height="160" rx="24" fill="#1E1B4B" class="node" />
-    <rect x="970" y="190" width="160" height="9" rx="5" fill="url(#violet)" />
-    <text x="1050" y="252" class="label">CLIP</text>
-    <text x="1050" y="281" class="detail">512-D visual</text>
-    <text x="1050" y="307" class="detail">embeddings</text>
+  <path class="link" d="M392 300V329" marker-end="url(#arrow)"/>
+  <g id="database">
+    <rect class="box" x="249" y="335" width="286" height="75" rx="8" fill="#f4ebfb" stroke="#5a2d89"/>
+    <path class="icon" stroke="#5a2d89" d="M278 353c0-5 8-8 17-8s17 3 17 8-8 8-17 8-17-3-17-8zm0 0v29c0 5 8 8 17 8s17-3 17-8v-29m-34 14c0 5 8 8 17 8s17-3 17-8"/>
+    <text class="node-text" x="407" y="371">Database<tspan x="407" dy="23">(FAISS &amp; SQLite)</tspan></text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".20;.27;.30;.36" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.7s">
-    <rect x="100" y="430" width="420" height="105" rx="24" fill="#1E1B4B" class="node" />
-    <rect x="100" y="430" width="420" height="9" rx="5" fill="url(#violet)" />
-    <text x="310" y="475" class="label">Evidence Records</text>
-    <text x="310" y="506" class="detail">SQLite audit trail · CSV exports · crops</text>
+  <path class="link" d="M535 372h12c7 0 12 5 12 12v219c0 7-5 12-12 12h-8" marker-end="url(#arrow)"/>
+  <line class="separator" x1="35" y1="444" x2="684" y2="444"/>
+  <!-- Section two -->
+  <rect class="label-box" x="29" y="573" width="135" height="178" rx="8"/>
+  <text class="label" x="96.5" y="628">STAGE 2:<tspan x="96.5" dy="28">MULTIMODAL</tspan><tspan x="96.5" dy="28">SEARCH &amp;</tspan><tspan x="96.5" dy="28">TIMELINE</tspan></text>
+  <path class="bracket" d="M210 476 C201 476 202 493 202 507 V648 C202 660 197 666 192 669 C197 672 202 678 202 691 V839 C202 851 201 858 210 858"/>
+  <g id="query">
+    <rect class="box" x="249" y="475" width="286" height="71" rx="8" fill="#fcecf2" stroke="#ba2860"/>
+    <path class="icon" stroke="#ba2860" d="M287 510a8 8 0 1 0 16 0 8 8 0 0 0-16 0zm-8 21c1-10 7-16 16-16s15 6 16 16h-32z"/>
+    <text class="node-text" x="407" y="518">User Query</text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".36;.43;.46;.52" dur="12s" repeatCount="indefinite"/>
   </g>
-
-  <!-- Shared search index -->
-  <g class="pulse" style="animation-delay:.8s">
-    <rect x="665" y="410" width="400" height="150" rx="26" fill="#083344" stroke="#22D3EE" stroke-width="3" />
-    <ellipse cx="865" cy="450" rx="80" ry="23" fill="#164E63" stroke="#67E8F9" stroke-width="2" />
-    <path d="M785 450 V510 C785 523 821 534 865 534 C909 534 945 523 945 510 V450" fill="#164E63" stroke="#67E8F9" stroke-width="2" />
-    <ellipse cx="865" cy="510" rx="80" ry="23" fill="#164E63" stroke="#67E8F9" stroke-width="2" />
-    <text x="865" y="478" class="label">FAISS INDEX</text>
-    <text x="865" y="583" class="detail">visual memory for every camera</text>
+  <path class="link" d="M392 546V573" marker-end="url(#arrow)"/>
+  <g id="search">
+    <rect class="box" x="249" y="579" width="286" height="72" rx="8" fill="#edf9e9" stroke="#25722a"/>
+    <path class="icon" stroke="#25722a" d="M291 592a16 16 0 1 0 0 32 16 16 0 0 0 0-32zm12 27 12 12"/>
+    <text class="node-text small" x="409" y="613">Similarity Search<tspan x="409" dy="22">from Database</tspan></text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".43;.50;.53;.59" dur="12s" repeatCount="indefinite"/>
   </g>
-
-  <!-- Query and output flow -->
-  <path d="M300 820 H410" class="flow" stroke="#22D3EE" marker-end="url(#arrow-cyan)" />
-  <path d="M610 820 H690 V635 H800" class="flow" stroke="#22D3EE" marker-end="url(#arrow-cyan)" />
-  <path d="M865 710 V780" class="flow" stroke="#34D399" marker-end="url(#arrow-green)" />
-  <path d="M865 930 V1000 H555" class="flow" stroke="#34D399" marker-end="url(#arrow-green)" />
-  <path d="M865 930 V1000 H975" class="flow" stroke="#34D399" marker-end="url(#arrow-green)" />
-
-  <g class="pulse" style="animation-delay:.1s">
-    <rect x="100" y="740" width="200" height="160" rx="24" fill="#083344" class="node" />
-    <rect x="100" y="740" width="200" height="9" rx="5" fill="url(#cyan)" />
-    <text x="200" y="803" class="label">Query Image</text>
-    <text x="200" y="832" class="detail">investigator</text>
-    <text x="200" y="858" class="detail">uploads a lead</text>
+  <path class="link" d="M392 651V680" marker-end="url(#arrow)"/>
+  <g id="timeline">
+    <rect class="box" x="249" y="686" width="286" height="71" rx="8" fill="#fff8e8" stroke="#d88116"/>
+    <path class="icon" stroke="#d66d0b" d="M263 718h58m-53 0a5 5 0 1 0 0 .1m18 0a5 5 0 1 0 0 .1m30 0a5 5 0 1 0 0 .1"/>
+    <text class="node-text small" x="409" y="718">Investigative<tspan x="409" dy="23">Assembly / Timeline</tspan></text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".50;.57;.60;.66" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.3s">
-    <rect x="410" y="740" width="200" height="160" rx="24" fill="#083344" class="node" />
-    <rect x="410" y="740" width="200" height="9" rx="5" fill="url(#cyan)" />
-    <text x="510" y="803" class="label">Query CLIP</text>
-    <text x="510" y="832" class="detail">same visual</text>
-    <text x="510" y="858" class="detail">embedding space</text>
+  <path class="link" d="M392 757V783" marker-end="url(#arrow)"/>
+  <g id="report">
+    <rect class="box" x="249" y="789" width="286" height="70" rx="8" fill="#f4ebfb" stroke="#5a2d89"/>
+    <path class="icon" stroke="#5a2d89" d="M280 803h18l11 11v31h-29zM298 803v12h11m-20 10h11m-11 7h11"/>
+    <text class="node-text" x="409" y="835">Report Generation</text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".57;.64;.67;.73" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.5s">
-    <rect x="700" y="780" width="330" height="150" rx="26" fill="#064E3B" stroke="#34D399" stroke-width="3" />
-    <text x="865" y="838" class="label">MATCH + RECONSTRUCT</text>
-    <text x="865" y="870" class="detail">similarity search · track grouping</text>
-    <text x="865" y="896" class="detail">chronological journey</text>
+  <path class="link" d="M535 825h12c7 0 12 5 12 12v197c0 7-5 12-12 12h-8" marker-end="url(#arrow)"/>
+  <line class="separator" x1="35" y1="885" x2="684" y2="885"/>
+  <!-- Section three -->
+  <rect class="label-box" x="29" y="985" width="135" height="140" rx="8"/>
+  <text class="label" x="96.5" y="1034">STAGE 3:<tspan x="96.5" dy="28">CONVERSATION</tspan><tspan x="96.5" dy="28">&amp; ATTRIBUTE</tspan></text>
+  <path class="bracket" d="M210 916 C201 916 202 933 202 947 V1081 C202 1093 197 1099 192 1102 C197 1105 202 1111 202 1124 V1245 C202 1257 201 1264 210 1264"/>
+  <g id="prompt">
+    <rect class="box" x="249" y="915" width="286" height="66" rx="8" fill="#edf9e9" stroke="#25722a"/>
+    <path class="icon" stroke="#25722a" d="M279 930h20c7 0 12 5 12 12v10c0 7-5 12-12 12h-10l-8 7v-7h-2c-7 0-12-5-12-12v-10c0-7 5-12 12-12z"/>
+    <text class="node-text" x="407" y="956">User Prompt</text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".73;.80;.83;.89" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.7s">
-    <rect x="315" y="1000" width="240" height="130" rx="24" fill="#064E3B" class="node" />
-    <rect x="315" y="1000" width="240" height="9" rx="5" fill="url(#green)" />
-    <text x="435" y="1056" class="label">Evidence Dashboard</text>
-    <text x="435" y="1085" class="detail">timeline · crops · scores</text>
+  <path class="link" d="M392 981V1008" marker-end="url(#arrow)"/>
+  <g id="context">
+    <rect class="box" x="249" y="1014" width="286" height="65" rx="8" fill="#fff8e8" stroke="#d88116"/>
+    <path class="icon" stroke="#d66d0b" d="M278 1022h18l11 11v31h-29zm18 0v12h11m-21 11h13m-1-5 9 5-9 5m9-5h-21"/>
+    <text class="node-text" x="407" y="1055">Context Injection</text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".80;.87;.90;.96" dur="12s" repeatCount="indefinite"/>
   </g>
-  <g class="pulse" style="animation-delay:.9s">
-    <rect x="975" y="1000" width="160" height="130" rx="24" fill="#064E3B" class="node" />
-    <rect x="975" y="1000" width="160" height="9" rx="5" fill="url(#green)" />
-    <text x="1055" y="1056" class="label">Assistant</text>
-    <text x="1055" y="1085" class="detail">answers</text>
+  <path class="link" d="M392 1079V1105" marker-end="url(#arrow)"/>
+  <g id="llm">
+    <rect class="box" x="249" y="1110" width="286" height="65" rx="8" fill="#f4ebfb" stroke="#5a2d89"/>
+    <path class="icon" stroke="#5a2d89" d="M295 1120c-4-5-11-2-11 4-6-1-9 7-4 11-5 5-1 12 5 11 0 6 8 9 12 4 5 5 12 1 11-5 6 0 9-8 4-12 5-5 1-12-5-11 0-6-8-9-12-4zm1 7v22m-8-17 8 4 8-4m-16 12 8-4 8 4"/>
+    <text class="node-text" x="407" y="1151">LLM Processing</text>
+    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".87;.94;.97;1" dur="12s" repeatCount="indefinite"/>
   </g>
-
-  <g fill="#A78BFA" filter="url(#glow)"><circle r="7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M300,270 H390 H590 H680 H880 H970" /></circle></g>
-  <g fill="#22D3EE" filter="url(#glow)"><circle r="7"><animateMotion dur="2s" repeatCount="indefinite" path="M300,820 H410 H610 H690 V635 H800" /></circle></g>
-  <g fill="#34D399" filter="url(#glow)"><circle r="7"><animateMotion dur="1.8s" repeatCount="indefinite" path="M865,710 V780 V930 V1000 H555" /></circle></g>
-  <g fill="#34D399" filter="url(#glow)"><circle r="7"><animateMotion dur="1.8s" begin=".6s" repeatCount="indefinite" path="M865,710 V780 V930 V1000 H975" /></circle></g>
+  <path class="link" d="M392 1175V1200" marker-end="url(#arrow)"/>
+  <g id="answer">
+    <rect class="box" x="249" y="1205" width="286" height="62" rx="8" fill="#e8f2ff" stroke="#0a58a6"/>
+    <path class="icon" stroke="#0a58a6" d="M295 1218c0 10-5 17-14 19 9 2 14 9 14 19 0-10 5-17 14-19-9-2-14-9-14-19z"/>
+    <text class="node-text" x="407" y="1244">Final Answer</text>
+    <animate attributeName="opacity" values="1;.83;1" keyTimes=".94;.98;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <!-- Repeating workflow pulses, SMIL-only for GitHub compatibility -->
+  <g class="motion">
+    <circle class="pulse" r="5">
+      <animateMotion path="M392 51 V372" dur="2.6s" begin="0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.6s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="pulse" r="5">
+      <animateMotion path="M392 510 V824" dur="2.6s" begin="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.6s" begin="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="pulse" r="5">
+      <animateMotion path="M392 948 V1236" dur="2.6s" begin="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.6s" begin="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="pulse" r="5">
+      <animateMotion path="M526 372 H547 Q559 372 559 384 V603 Q559 615 547 615 H526" dur="2.1s" begin="9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.1s" begin="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="pulse" r="5">
+      <animateMotion path="M526 825 H547 Q559 825 559 837 V1034 Q559 1046 547 1046 H526" dur="2.1s" begin="10.1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.1s" begin="10.1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </svg>
