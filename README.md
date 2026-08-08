@@ -196,3 +196,7 @@ N.O.V.A. produces investigative leads, not identity confirmation. Visual similar
 <p align="center">
   Built for explainable, evidence-backed visual investigations.
 </p>
+
+## PPT
+
+[Click Here](https://docs.google.com/presentation/d/1g84loO77ZarUxJ9k9hkVWW-PqcmG4HS-/edit?usp=drivesdk&ouid=111352118999025787129&rtpof=true&sd=true)
