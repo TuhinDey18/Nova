@@ -41,15 +41,6 @@ The goal is to transform a large, fragmented set of camera feeds into a small se
   </a>
 </p>
 
-## Workflow diagram
-
-<p align="center">
-  <a href="assets/nova-workflowdg.svg">
-    <img src="assets/nova-workflowdg.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
-  </a>
-</p>
-
-
 ## Quick start
 
 ### Prerequisites
@@ -153,6 +144,14 @@ runs/               # YOLO annotated video output
 4. Reconstruct a chronological journey across all matching cameras.
 5. Review supporting crops, times, durations, and similarity scores.
 6. Ask N.O.V.A. questions such as "Where was the subject first seen?"
+
+## Workflow diagram
+
+<p align="center">
+  <a href="assets/nova-workflowdg.svg">
+    <img src="assets/nova-workflowdg.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
+  </a>
+</p>
 
 ## Deployment notes
 
