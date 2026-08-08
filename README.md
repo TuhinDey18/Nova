@@ -1,4 +1,4 @@
-# [N.O.V.A.](https://github.com/TuhinDey18/ECHO) — Networked Observation & Visual Analytics
+# [N.O.V.A.](https://github.com/TuhinDey18/Nova) — Networked Observation & Visual Analytics
 
 <p align="center">
   <strong>Upload one image. Search every camera. Reconstruct the journey.</strong>
