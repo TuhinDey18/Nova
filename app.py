@@ -117,7 +117,7 @@ st.markdown(
     <div class="echo-header">
         <div class="echo-brand">N.O.V.<span>A.</span></div>
         <div class="echo-subtitle">
-            Enhanced Conversational Heuristic Observation
+            Netowrked Observation & Visual Analytics
         </div>
         <div class="system-status">● SYSTEM READY</div>
     </div>
