@@ -1,118 +1,286 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1520" viewBox="0 0 1680 1520" role="img" aria-labelledby="title desc">
+  <title id="title">N.O.V.A. system architecture diagram</title>
+  <desc id="desc">End-to-end architecture of N.O.V.A.: offline CCTV indexing (YOLO detection, crops, CLIP embeddings, FAISS index), live investigation pipeline (SearchEngine, InvestigationEngine, ReportGenerator) rendered by the Streamlit console, the Ollama-backed LLM debrief with footage playback, data stores, and the demo/live failsafe modes.</desc>
+  <defs>
+    <linearGradient id="gAmber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5A623"/><stop offset="1" stop-color="#D48806"/>
+    </linearGradient>
+    <linearGradient id="gTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3FC7B8"/><stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="gViolet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+    <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34D399"/><stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E5484D"/><stop offset="1" stop-color="#B02A2F"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="mAmber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#F5A623"/></marker>
+    <marker id="mTeal" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3FC7B8"/></marker>
+    <marker id="mViolet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#8B5CF6"/></marker>
+    <marker id="mGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#34D399"/></marker>
+    <marker id="mRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E5484D"/></marker>
+    <style>
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; fill: #F7F4EC; }
+      .sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; fill: #8A93A8; letter-spacing: 1px; }
+      .section { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 3px; }
+      .boxlabel { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 20px; fill: #F7F4EC; }
+      .detail { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #A7B0C2; }
+      .micro { font-family: Consolas, 'Courier New', monospace; font-size: 12px; fill: #5B6478; }
+      .code { font-family: Consolas, 'Courier New', monospace; }
+      .flow { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 12 14; animation: dash 1.5s linear infinite; }
+      .conn { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 10; animation: dash 1.8s linear infinite; }
+      .pulse { animation: pulse 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes dash { to { stroke-dashoffset: -52; } }
+      @keyframes pulse { 50% { transform: scale(1.05); } }
+      @media (prefers-reduced-motion: reduce) { .flow, .conn, .pulse { animation: none; } }
+    </style>
+  </defs>
 
-  <g id="video">
-    <rect class="box" x="249" y="16" width="286" height="70" rx="8" fill="#e8f2ff" stroke="#0a58a6"/>
-    <path class="icon" stroke="#0a58a6" d="M280 38h21a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6h-21a6 6 0 0 1-6-6V44a6 6 0 0 1 6-6zm27 10 12-7v28l-12-7"/>
-    <text class="node-text" x="406" y="57">Video Capture</text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes="0;.06;.09;.15" dur="12s" repeatCount="indefinite"/>
+  <rect width="1680" height="1520" rx="40" fill="#07090E" stroke="#232A38" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="90" y="82" class="title" font-size="46">N.O.V.A.</text>
+  <text x="285" y="82" class="sub">SYSTEM ARCHITECTURE</text>
+  <text x="90" y="118" class="detail" font-size="17" fill="#8A93A8">Networked Observation &amp; Visual Analytics — Streamlit console · src/ pipeline · Ollama LLM · FAISS visual memory</text>
+  <circle cx="1590" cy="70" r="9" fill="#34D399" filter="url(#glow)"><animate attributeName="opacity" values="1;.35;1" dur="1.5s" repeatCount="indefinite"/></circle>
+  <text x="1572" y="76" class="detail" font-size="14">LIVE</text>
+  <line x1="90" y1="132" x2="1590" y2="132" stroke="#232A38" stroke-width="2"/>
+
+  <!-- ===================== SECTION 1 · OFFLINE INDEXING ===================== -->
+  <rect x="60" y="155" width="1560" height="270" rx="26" fill="#0C0A16" stroke="#2B2347"/>
+  <text x="90" y="188" class="section" fill="#A5B4FC">1 · OFFLINE VIDEO INDEXING</text>
+
+  <g class="flow" stroke="#8B5CF6" marker-end="url(#mViolet)">
+    <path d="M360 295 H390"/><path d="M670 295 H700"/><path d="M980 295 H1010"/><path d="M1290 295 H1320"/>
   </g>
-  <path class="link" d="M392 86V114" marker-end="url(#arrow)"/>
-  <g id="detection">
-    <rect class="box" x="249" y="119" width="286" height="72" rx="8" fill="#edf9e9" stroke="#25722a"/>
-    <path class="icon" stroke="#25722a" d="M298 133v9m0 27v9m-22-22h9m27 0h9M298 141a15 15 0 1 0 0 30 15 15 0 0 0 0-30zm0 11v8m-4-4h8"/>
-    <text class="node-text" x="407" y="155">Detection<tspan x="407" dy="23">(YOLOv11)</tspan></text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".06;.13;.16;.22" dur="12s" repeatCount="indefinite"/>
+
+  <g class="pulse" style="animation-delay:.1s">
+    <rect x="80" y="210" width="280" height="170" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="80" y="210" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="220" y="272" class="boxlabel" text-anchor="middle">CCTV Case Videos</text>
+    <text x="220" y="298" class="detail" text-anchor="middle">cases/ folders · .mp4 evidence</text>
+    <text x="220" y="322" class="detail" text-anchor="middle">network surveillance feeds</text>
+    <text x="220" y="358" class="micro" text-anchor="middle">input · raw footage</text>
   </g>
-  <path class="link" d="M392 191V222" marker-end="url(#arrow)"/>
-  <g id="crop">
-    <rect class="box" x="249" y="228" width="286" height="72" rx="8" fill="#fff8e8" stroke="#d88116"/>
-    <path class="icon" stroke="#d66d0b" d="M289 246h-11v11m0 15v11h11m15 0h10v-11m0-15v-11h-10M285 252h22v25h-22z"/>
-    <text class="node-text" x="407" y="271">Cropping / Embedding</text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".13;.20;.23;.29" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.2s">
+    <rect x="390" y="210" width="280" height="170" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="390" y="210" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="530" y="272" class="boxlabel" text-anchor="middle">YOLOv11 Detector</text>
+    <text x="530" y="298" class="detail" text-anchor="middle">detector.py · detection + tracking</text>
+    <text x="530" y="322" class="detail" text-anchor="middle">writes database/echo.db</text>
+    <text x="530" y="358" class="micro" text-anchor="middle">src/detector.py · yolo11n.pt</text>
   </g>
-  <path class="link" d="M392 300V329" marker-end="url(#arrow)"/>
-  <g id="database">
-    <rect class="box" x="249" y="335" width="286" height="75" rx="8" fill="#f4ebfb" stroke="#5a2d89"/>
-    <path class="icon" stroke="#5a2d89" d="M278 353c0-5 8-8 17-8s17 3 17 8-8 8-17 8-17-3-17-8zm0 0v29c0 5 8 8 17 8s17-3 17-8v-29m-34 14c0 5 8 8 17 8s17-3 17-8"/>
-    <text class="node-text" x="407" y="371">Database<tspan x="407" dy="23">(FAISS &amp; SQLite)</tspan></text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".20;.27;.30;.36" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.3s">
+    <rect x="700" y="210" width="280" height="170" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="700" y="210" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="840" y="272" class="boxlabel" text-anchor="middle">Object Crops</text>
+    <text x="840" y="298" class="detail" text-anchor="middle">cropper.py → crops/</text>
+    <text x="840" y="322" class="detail" text-anchor="middle">frame evidence + metadata</text>
+    <text x="840" y="358" class="micro" text-anchor="middle">src/cropper.py</text>
   </g>
-  <path class="link" d="M535 372h12c7 0 12 5 12 12v219c0 7-5 12-12 12h-8" marker-end="url(#arrow)"/>
-  <line class="separator" x1="35" y1="444" x2="684" y2="444"/>
-  <!-- Section two -->
-  <rect class="label-box" x="29" y="573" width="135" height="178" rx="8"/>
-  <text class="label" x="96.5" y="628">STAGE 2:<tspan x="96.5" dy="28">MULTIMODAL</tspan><tspan x="96.5" dy="28">SEARCH &amp;</tspan><tspan x="96.5" dy="28">TIMELINE</tspan></text>
-  <path class="bracket" d="M210 476 C201 476 202 493 202 507 V648 C202 660 197 666 192 669 C197 672 202 678 202 691 V839 C202 851 201 858 210 858"/>
-  <g id="query">
-    <rect class="box" x="249" y="475" width="286" height="71" rx="8" fill="#fcecf2" stroke="#ba2860"/>
-    <path class="icon" stroke="#ba2860" d="M287 510a8 8 0 1 0 16 0 8 8 0 0 0-16 0zm-8 21c1-10 7-16 16-16s15 6 16 16h-32z"/>
-    <text class="node-text" x="407" y="518">User Query</text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".36;.43;.46;.52" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.4s">
+    <rect x="1010" y="210" width="280" height="170" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="1010" y="210" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="1150" y="272" class="boxlabel" text-anchor="middle">CLIP Embeddings</text>
+    <text x="1150" y="298" class="detail" text-anchor="middle">embedding.py · open_clip</text>
+    <text x="1150" y="322" class="detail" text-anchor="middle">512-D normalized vectors</text>
+    <text x="1150" y="358" class="micro" text-anchor="middle">src/embedding.py</text>
   </g>
-  <path class="link" d="M392 546V573" marker-end="url(#arrow)"/>
-  <g id="search">
-    <rect class="box" x="249" y="579" width="286" height="72" rx="8" fill="#edf9e9" stroke="#25722a"/>
-    <path class="icon" stroke="#25722a" d="M291 592a16 16 0 1 0 0 32 16 16 0 0 0 0-32zm12 27 12 12"/>
-    <text class="node-text small" x="409" y="613">Similarity Search<tspan x="409" dy="22">from Database</tspan></text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".43;.50;.53;.59" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.5s">
+    <rect x="1320" y="210" width="280" height="170" rx="18" fill="#0F0B1E" stroke="#6D5AE0" stroke-width="2"/>
+    <rect x="1320" y="210" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="1460" y="272" class="boxlabel" text-anchor="middle">FAISS Index</text>
+    <text x="1460" y="298" class="detail" text-anchor="middle">faiss_index.py · IndexFlatIP</text>
+    <text x="1460" y="322" class="detail" text-anchor="middle">faiss/faiss.index + metadata.pkl</text>
+    <text x="1460" y="358" class="micro" text-anchor="middle">visual memory · every camera</text>
   </g>
-  <path class="link" d="M392 651V680" marker-end="url(#arrow)"/>
-  <g id="timeline">
-    <rect class="box" x="249" y="686" width="286" height="71" rx="8" fill="#fff8e8" stroke="#d88116"/>
-    <path class="icon" stroke="#d66d0b" d="M263 718h58m-53 0a5 5 0 1 0 0 .1m18 0a5 5 0 1 0 0 .1m30 0a5 5 0 1 0 0 .1"/>
-    <text class="node-text small" x="409" y="718">Investigative<tspan x="409" dy="23">Assembly / Timeline</tspan></text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".50;.57;.60;.66" dur="12s" repeatCount="indefinite"/>
+
+  <!-- ===================== SECTION 2 · LIVE INVESTIGATION ===================== -->
+  <rect x="60" y="440" width="1560" height="300" rx="26" fill="#0A1013" stroke="#12312E"/>
+  <text x="90" y="473" class="section" fill="#99F6E4">2 · LIVE INVESTIGATION — STREAMLIT CONSOLE + src/ PIPELINE</text>
+
+  <!-- FAISS -> SearchEngine connector -->
+  <path d="M1460 380 V455 H530 V500" class="conn" stroke="#3FC7B8" marker-end="url(#mTeal)"/>
+  <text x="900" y="450" class="micro" fill="#67E8F9">query embedding → nearest-neighbour search</text>
+
+  <g class="flow" stroke="#3FC7B8" marker-end="url(#mTeal)">
+    <path d="M360 600 H390"/><path d="M670 600 H700"/><path d="M980 600 H1010"/><path d="M1290 600 H1320"/>
   </g>
-  <path class="link" d="M392 757V783" marker-end="url(#arrow)"/>
-  <g id="report">
-    <rect class="box" x="249" y="789" width="286" height="70" rx="8" fill="#f4ebfb" stroke="#5a2d89"/>
-    <path class="icon" stroke="#5a2d89" d="M280 803h18l11 11v31h-29zM298 803v12h11m-20 10h11m-11 7h11"/>
-    <text class="node-text" x="409" y="835">Report Generation</text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".57;.64;.67;.73" dur="12s" repeatCount="indefinite"/>
+
+  <g class="pulse" style="animation-delay:.15s">
+    <rect x="80" y="500" width="280" height="200" rx="18" fill="#151207" stroke="#3A2F12" stroke-width="1.5"/>
+    <rect x="80" y="500" width="280" height="7" rx="4" fill="url(#gAmber)"/>
+    <text x="220" y="560" class="boxlabel" text-anchor="middle">Evidence Intake</text>
+    <text x="220" y="586" class="detail" text-anchor="middle">app.py · st.form + file uploader</text>
+    <text x="220" y="610" class="detail" text-anchor="middle">tempfile → query_path</text>
+    <text x="220" y="634" class="detail" text-anchor="middle">operator submits target photo</text>
+    <text x="220" y="676" class="micro" text-anchor="middle">frontend · streamlit UI</text>
   </g>
-  <path class="link" d="M535 825h12c7 0 12 5 12 12v197c0 7-5 12-12 12h-8" marker-end="url(#arrow)"/>
-  <line class="separator" x1="35" y1="885" x2="684" y2="885"/>
-  <!-- Section three -->
-  <rect class="label-box" x="29" y="985" width="135" height="140" rx="8"/>
-  <text class="label" x="96.5" y="1034">STAGE 3:<tspan x="96.5" dy="28">CONVERSATION</tspan><tspan x="96.5" dy="28">&amp; ATTRIBUTE</tspan></text>
-  <path class="bracket" d="M210 916 C201 916 202 933 202 947 V1081 C202 1093 197 1099 192 1102 C197 1105 202 1111 202 1124 V1245 C202 1257 201 1264 210 1264"/>
-  <g id="prompt">
-    <rect class="box" x="249" y="915" width="286" height="66" rx="8" fill="#edf9e9" stroke="#25722a"/>
-    <path class="icon" stroke="#25722a" d="M279 930h20c7 0 12 5 12 12v10c0 7-5 12-12 12h-10l-8 7v-7h-2c-7 0-12-5-12-12v-10c0-7 5-12 12-12z"/>
-    <text class="node-text" x="407" y="956">User Prompt</text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".73;.80;.83;.89" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.3s">
+    <rect x="390" y="500" width="280" height="200" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="390" y="500" width="280" height="7" rx="4" fill="url(#gTeal)"/>
+    <text x="530" y="560" class="boxlabel" text-anchor="middle">SearchEngine</text>
+    <text x="530" y="586" class="detail" text-anchor="middle">search.py · CLIP embed query</text>
+    <text x="530" y="610" class="detail" text-anchor="middle">FAISS top-k ranked matches</text>
+    <text x="530" y="634" class="detail" text-anchor="middle">→ search_image(query_path)</text>
+    <text x="530" y="676" class="micro" text-anchor="middle">src/search.py</text>
   </g>
-  <path class="link" d="M392 981V1008" marker-end="url(#arrow)"/>
-  <g id="context">
-    <rect class="box" x="249" y="1014" width="286" height="65" rx="8" fill="#fff8e8" stroke="#d88116"/>
-    <path class="icon" stroke="#d66d0b" d="M278 1022h18l11 11v31h-29zm18 0v12h11m-21 11h13m-1-5 9 5-9 5m9-5h-21"/>
-    <text class="node-text" x="407" y="1055">Context Injection</text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".80;.87;.90;.96" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.45s">
+    <rect x="700" y="500" width="280" height="200" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="700" y="500" width="280" height="7" rx="4" fill="url(#gTeal)"/>
+    <text x="840" y="560" class="boxlabel" text-anchor="middle">InvestigationEngine</text>
+    <text x="840" y="586" class="detail" text-anchor="middle">investigation.py · 4 stages</text>
+    <text x="840" y="612" class="micro" text-anchor="middle">group_tracks</text>
+    <text x="840" y="632" class="micro" text-anchor="middle">build_timeline</text>
+    <text x="840" y="652" class="micro" text-anchor="middle">reconstruct_journey</text>
+    <text x="840" y="672" class="micro" text-anchor="middle">associate_tracks</text>
+    <text x="840" y="696" class="detail" text-anchor="middle">chronological journey pathing</text>
   </g>
-  <path class="link" d="M392 1079V1105" marker-end="url(#arrow)"/>
-  <g id="llm">
-    <rect class="box" x="249" y="1110" width="286" height="65" rx="8" fill="#f4ebfb" stroke="#5a2d89"/>
-    <path class="icon" stroke="#5a2d89" d="M295 1120c-4-5-11-2-11 4-6-1-9 7-4 11-5 5-1 12 5 11 0 6 8 9 12 4 5 5 12 1 11-5 6 0 9-8 4-12 5-5 1-12-5-11 0-6-8-9-12-4zm1 7v22m-8-17 8 4 8-4m-16 12 8-4 8 4"/>
-    <text class="node-text" x="407" y="1151">LLM Processing</text>
-    <animate attributeName="opacity" values="1;1;.83;1" keyTimes=".87;.94;.97;1" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.6s">
+    <rect x="1010" y="500" width="280" height="200" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="1010" y="500" width="280" height="7" rx="4" fill="url(#gTeal)"/>
+    <text x="1150" y="560" class="boxlabel" text-anchor="middle">ReportGenerator</text>
+    <text x="1150" y="586" class="detail" text-anchor="middle">report.py · generate()</text>
+    <text x="1150" y="610" class="detail" text-anchor="middle">summary · journey · cameras</text>
+    <text x="1150" y="634" class="detail" text-anchor="middle">writes reports/ exports</text>
+    <text x="1150" y="676" class="micro" text-anchor="middle">src/report.py</text>
   </g>
-  <path class="link" d="M392 1175V1200" marker-end="url(#arrow)"/>
-  <g id="answer">
-    <rect class="box" x="249" y="1205" width="286" height="62" rx="8" fill="#e8f2ff" stroke="#0a58a6"/>
-    <path class="icon" stroke="#0a58a6" d="M295 1218c0 10-5 17-14 19 9 2 14 9 14 19 0-10 5-17 14-19-9-2-14-9-14-19z"/>
-    <text class="node-text" x="407" y="1244">Final Answer</text>
-    <animate attributeName="opacity" values="1;.83;1" keyTimes=".94;.98;1" dur="12s" repeatCount="indefinite"/>
+  <g class="pulse" style="animation-delay:.75s">
+    <rect x="1320" y="500" width="280" height="200" rx="18" fill="#151207" stroke="#3A2F12" stroke-width="1.5"/>
+    <rect x="1320" y="500" width="280" height="7" rx="4" fill="url(#gAmber)"/>
+    <text x="1460" y="560" class="boxlabel" text-anchor="middle">UI Render</text>
+    <text x="1460" y="586" class="detail" text-anchor="middle">st.session_state.report</text>
+    <text x="1460" y="610" class="detail" text-anchor="middle">Dossier · Journey Chain</text>
+    <text x="1460" y="634" class="detail" text-anchor="middle">Evidence Grid · Telemetry</text>
+    <text x="1460" y="676" class="micro" text-anchor="middle">frontend · light / dark themes</text>
   </g>
-  <!-- Repeating workflow pulses, SMIL-only for GitHub compatibility -->
-  <g class="motion">
-    <circle class="pulse" r="5">
-      <animateMotion path="M392 51 V372" dur="2.6s" begin="0s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.6s" begin="0s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="pulse" r="5">
-      <animateMotion path="M392 510 V824" dur="2.6s" begin="3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.6s" begin="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="pulse" r="5">
-      <animateMotion path="M392 948 V1236" dur="2.6s" begin="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.6s" begin="6s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="pulse" r="5">
-      <animateMotion path="M526 372 H547 Q559 372 559 384 V603 Q559 615 547 615 H526" dur="2.1s" begin="9s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.1s" begin="9s" repeatCount="indefinite"/>
-    </circle>
-    <circle class="pulse" r="5">
-      <animateMotion path="M526 825 H547 Q559 825 559 837 V1034 Q559 1046 547 1046 H526" dur="2.1s" begin="10.1s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="2.1s" begin="10.1s" repeatCount="indefinite"/>
-    </circle>
+
+  <!-- ===================== SECTION 3 · LLM DEBRIEF & PLAYBACK ===================== -->
+  <rect x="60" y="760" width="1560" height="290" rx="26" fill="#100B18" stroke="#2B2347"/>
+  <text x="90" y="793" class="section" fill="#C4B5FD">3 · LLM DEBRIEF &amp; FOOTAGE PLAYBACK</text>
+
+  <!-- ReportGenerator -> Debrief Assistant connector -->
+  <path d="M1150 700 V740 H220 V820" class="conn" stroke="#3FC7B8" marker-end="url(#mTeal)"/>
+  <text x="700" y="737" class="micro" fill="#67E8F9">report → assistant context</text>
+
+  <!-- UI Render -> Footage Playback connector -->
+  <path d="M1460 700 V820" class="conn" stroke="#F5A623" marker-end="url(#mAmber)"/>
+  <text x="1472" y="758" class="micro" fill="#F5A623">play_video action</text>
+
+  <g class="flow" stroke="#8B5CF6" marker-end="url(#mViolet)">
+    <path d="M360 915 H390"/><path d="M670 915 H700"/><path d="M980 915 H1010"/><path d="M1290 915 H1320"/>
   </g>
+
+  <g class="pulse" style="animation-delay:.2s">
+    <rect x="80" y="820" width="280" height="190" rx="18" fill="#151207" stroke="#3A2F12" stroke-width="1.5"/>
+    <rect x="80" y="820" width="280" height="7" rx="4" fill="url(#gAmber)"/>
+    <text x="220" y="884" class="boxlabel" text-anchor="middle">Debrief Assistant</text>
+    <text x="220" y="910" class="detail" text-anchor="middle">app.py · chat + quick prompts</text>
+    <text x="220" y="934" class="detail" text-anchor="middle">question + report context</text>
+    <text x="220" y="980" class="micro" text-anchor="middle">frontend · streamlit chat</text>
+  </g>
+  <g class="pulse" style="animation-delay:.35s">
+    <rect x="390" y="820" width="280" height="190" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="390" y="820" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="530" y="884" class="boxlabel" text-anchor="middle">InvestigationAssistant</text>
+    <text x="530" y="910" class="detail" text-anchor="middle">assistant.py · ask(question, report)</text>
+    <text x="530" y="934" class="detail" text-anchor="middle">builds LLM prompt</text>
+    <text x="530" y="980" class="micro" text-anchor="middle">src/assistant.py</text>
+  </g>
+  <g class="pulse" style="animation-delay:.5s">
+    <rect x="700" y="820" width="280" height="190" rx="18" fill="#12161D" stroke="#2A3040" stroke-width="1.5"/>
+    <rect x="700" y="820" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="840" y="884" class="boxlabel" text-anchor="middle">OllamaLLM</text>
+    <text x="840" y="910" class="detail" text-anchor="middle">llm.py · lazy import of ollama</text>
+    <text x="840" y="934" class="detail" text-anchor="middle">OllamaLLM(model='llama3.2')</text>
+    <text x="840" y="980" class="micro" text-anchor="middle">src/llm.py · graceful if missing</text>
+  </g>
+  <g class="pulse" style="animation-delay:.65s">
+    <rect x="1010" y="820" width="280" height="190" rx="18" fill="#0F0B1E" stroke="#6D5AE0" stroke-width="2" stroke-dasharray="8 6"/>
+    <rect x="1010" y="820" width="280" height="7" rx="4" fill="url(#gViolet)"/>
+    <text x="1150" y="884" class="boxlabel" text-anchor="middle">Ollama Service</text>
+    <text x="1150" y="910" class="detail" text-anchor="middle">external · localhost:11434</text>
+    <text x="1150" y="934" class="detail" text-anchor="middle">llama3.2 model inference</text>
+    <text x="1150" y="980" class="micro" text-anchor="middle">external process</text>
+  </g>
+  <g class="pulse" style="animation-delay:.8s">
+    <rect x="1320" y="820" width="280" height="190" rx="18" fill="#151207" stroke="#3A2F12" stroke-width="1.5"/>
+    <rect x="1320" y="820" width="280" height="7" rx="4" fill="url(#gAmber)"/>
+    <text x="1460" y="884" class="boxlabel" text-anchor="middle">Footage Playback</text>
+    <text x="1460" y="910" class="detail" text-anchor="middle">JSON answer → play_video</text>
+    <text x="1460" y="934" class="detail" text-anchor="middle">st.video(start_time)</text>
+    <text x="1460" y="980" class="micro" text-anchor="middle">frontend · camera + timestamp</text>
+  </g>
+
+  <!-- ===================== SECTION 4 · DATA STORES ===================== -->
+  <rect x="60" y="1070" width="1560" height="180" rx="26" fill="#08130C" stroke="#12301F"/>
+  <text x="90" y="1103" class="section" fill="#6EE7B7">4 · DATA STORES</text>
+
+  <g fill="#12161D" stroke="#1F4A33" stroke-width="1.5">
+    <rect x="90" y="1130" width="225" height="90" rx="16"/>
+    <rect x="600" y="1130" width="225" height="90" rx="16"/>
+    <rect x="1110" y="1130" width="225" height="90" rx="16"/>
+  </g>
+  <g class="micro" text-anchor="middle">
+    <text x="202" y="1164" class="detail" font-family="'Segoe UI', Arial, sans-serif">cases/</text>
+    <text x="202" y="1188" class="detail" fill="#6EE7B7">CCTV case footage</text>
+    <text x="712" y="1164" class="detail" font-family="'Segoe UI', Arial, sans-serif">faiss/</text>
+    <text x="712" y="1188" class="detail" fill="#6EE7B7">faiss.index + metadata.pkl</text>
+    <text x="1222" y="1164" class="detail" font-family="'Segoe UI', Arial, sans-serif">reports/</text>
+    <text x="1222" y="1188" class="detail" fill="#6EE7B7">case exports</text>
+  </g>
+  <g class="micro" text-anchor="middle">
+    <rect x="345" y="1130" width="225" height="90" rx="16" fill="#12161D" stroke="#1F4A33" stroke-width="1.5"/>
+    <text x="457" y="1164" class="detail" font-family="'Segoe UI', Arial, sans-serif">crops/</text>
+    <text x="457" y="1188" class="detail" fill="#6EE7B7">detection crops</text>
+    <rect x="855" y="1130" width="225" height="90" rx="16" fill="#12161D" stroke="#1F4A33" stroke-width="1.5"/>
+    <text x="967" y="1164" class="detail" font-family="'Segoe UI', Arial, sans-serif">models/</text>
+    <text x="967" y="1188" class="detail" fill="#6EE7B7">yolo11n.pt · CLIP weights</text>
+    <rect x="1365" y="1130" width="225" height="90" rx="16" fill="#12161D" stroke="#1F4A33" stroke-width="1.5"/>
+    <text x="1477" y="1164" class="detail" font-family="'Segoe UI', Arial, sans-serif">database/echo.db</text>
+    <text x="1477" y="1188" class="detail" fill="#6EE7B7">SQLite audit trail</text>
+  </g>
+
+  <!-- ===================== SECTION 5 · DEPLOYMENT / FAILSAFE MODES ===================== -->
+  <rect x="60" y="1270" width="1560" height="150" rx="26" fill="#14080B" stroke="#3B1420"/>
+  <text x="90" y="1303" class="section" fill="#FDA4AF">5 · DEPLOYMENT / FAILSAFE MODES</text>
+
+  <g class="pulse" style="animation-delay:.1s">
+    <rect x="80" y="1320" width="740" height="80" rx="16" fill="#1A0B0E" stroke="#5C1A22"/>
+    <rect x="80" y="1320" width="740" height="6" rx="3" fill="url(#gRed)"/>
+    <text x="450" y="1350" class="boxlabel" font-size="18" text-anchor="middle">NOVA_DEMO_MODE = 1</text>
+    <text x="450" y="1378" class="detail" text-anchor="middle">Frontend Demo Mode — illustrative events · no CCTV / AI / Ollama queried</text>
+  </g>
+  <g class="pulse" style="animation-delay:.3s">
+    <rect x="850" y="1320" width="740" height="80" rx="16" fill="#0A1513" stroke="#1E4A41"/>
+    <rect x="850" y="1320" width="740" height="6" rx="3" fill="url(#gTeal)"/>
+    <text x="1220" y="1350" class="boxlabel" font-size="18" text-anchor="middle">NOVA_DEMO_MODE unset</text>
+    <text x="1220" y="1378" class="detail" text-anchor="middle">try/except backend load → backend_ok ? LIVE : "Live backend unavailable" banner</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="90" y1="1445" x2="1590" y2="1445" stroke="#232A38" stroke-width="2"/>
+  <text x="90" y="1478" class="micro">Streamlit session state: case_id · report · chat_history · video_request · prompt_trigger · theme</text>
+  <g font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#8A93A8">
+    <rect x="980" y="1464" width="14" height="14" rx="3" fill="#F5A623"/><text x="1002" y="1476">Streamlit UI</text>
+    <rect x="1105" y="1464" width="14" height="14" rx="3" fill="#3FC7B8"/><text x="1127" y="1476">Engine (src/)</text>
+    <rect x="1245" y="1464" width="14" height="14" rx="3" fill="#8B5CF6"/><text x="1267" y="1476">CLIP / LLM</text>
+    <rect x="1370" y="1464" width="14" height="14" rx="3" fill="#34D399"/><text x="1392" y="1476">Stores</text>
+    <rect x="1478" y="1464" width="14" height="14" rx="3" fill="#E5484D"/><text x="1500" y="1476">Failsafe</text>
+  </g>
+
+  <!-- Animated flow dots -->
+  <g fill="#8B5CF6" filter="url(#glow)"><circle r="7"><animateMotion dur="2.4s" repeatCount="indefinite" path="M360,295 H390 H670 H700 H980 H1010 H1290 H1320"/></circle></g>
+  <g fill="#3FC7B8" filter="url(#glow)"><circle r="7"><animateMotion dur="2s" repeatCount="indefinite" path="M1460,380 V455 H530 V500"/></circle></g>
+  <g fill="#3FC7B8" filter="url(#glow)"><circle r="7"><animateMotion dur="2.4s" repeatCount="indefinite" path="M360,600 H390 H670 H700 H980 H1010 H1290 H1320"/></circle></g>
+  <g fill="#8B5CF6" filter="url(#glow)"><circle r="7"><animateMotion dur="2.4s" repeatCount="indefinite" path="M360,915 H390 H670 H700 H980 H1010 H1290 H1320"/></circle></g>
+  <g fill="#F5A623" filter="url(#glow)"><circle r="7"><animateMotion dur="1.8s" repeatCount="indefinite" path="M1150,700 V740 H220 V820"/></circle></g>
+  <g fill="#F5A623" filter="url(#glow)"><circle r="7"><animateMotion dur="1.8s" begin=".5s" repeatCount="indefinite" path="M1460,700 V820"/></circle></g>
 </svg>
