@@ -1,0 +1,340 @@
+/* ============================================================
+   NOVA — Investigation Console
+   Global stylesheet
+   ============================================================ */
+
+:root {
+    --nova-bg: #0b0e13;
+    --nova-surface: #10151c;
+    --nova-surface-2: #141a22;
+    --nova-border: #29313c;
+    --nova-border-soft: #202731;
+    --nova-text: #f1f4f8;
+    --nova-muted: #7c8796;
+    --nova-blue: #4da3ff;
+    --nova-green: #4ade80;
+}
+
+/* ---------- App ---------- */
+
+.stApp {
+    background: var(--nova-bg);
+    color: var(--nova-text);
+}
+
+.main .block-container {
+    max-width: 1400px;
+    padding-top: 1.8rem;
+    padding-bottom: 4rem;
+}
+
+/* ---------- Sidebar ---------- */
+
+section[data-testid="stSidebar"] {
+    background: #0d1117;
+    border-right: 1px solid var(--nova-border-soft);
+}
+
+.sidebar-title {
+    color: var(--nova-text);
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.sidebar-subtitle {
+    color: #707b8a;
+    font-size: 11px;
+    letter-spacing: .8px;
+    margin-bottom: 25px;
+}
+
+.sidebar-case {
+    color: #aab3c0;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+.sidebar-case-id {
+    color: #edf1f6;
+    font-size: 12px;
+    font-weight: 650;
+    margin-top: 3px;
+    word-break: break-all;
+}
+
+/* ---------- NOVA Header ---------- */
+
+.nova-header {
+    padding: 5px 0 26px 0;
+}
+
+.nova-brand {
+    color: var(--nova-text);
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -2.5px;
+    line-height: 1;
+}
+
+.nova-brand-accent {
+    color: var(--nova-blue);
+}
+
+.nova-subtitle {
+    color: var(--nova-muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.system-status {
+    color: var(--nova-green);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 14px;
+}
+
+/* ---------- Section headings ---------- */
+
+.section-title {
+    color: var(--nova-text);
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 4px;
+}
+
+.section-subtitle {
+    color: var(--nova-muted);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* ---------- Statistics ---------- */
+
+.stat {
+    min-height: 64px;
+    padding: 4px 18px 8px 0;
+    border-right: 1px solid var(--nova-border);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat-label {
+    color: #737e8e;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .9px;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    color: var(--nova-text);
+    font-size: 25px;
+    font-weight: 750;
+    margin-top: 3px;
+}
+
+/* ---------- Investigation Timeline ---------- */
+
+.timeline-line {
+    border-left: 1px solid #303846;
+    margin-left: 12px;
+    padding-left: 26px;
+    padding-bottom: 22px;
+}
+
+.timeline-dot {
+    position: relative;
+}
+
+.timeline-dot::before {
+    content: "";
+    position: absolute;
+    left: -33px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--nova-blue);
+    box-shadow: 0 0 0 4px #101722;
+}
+
+.camera-title {
+    color: var(--nova-text);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.camera-meta {
+    color: var(--nova-muted);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+/* ---------- Evidence ---------- */
+
+.evidence-label {
+    color: #8d98a8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* ---------- Playback ---------- */
+
+.playback-title {
+    color: var(--nova-text);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.playback-meta {
+    color: var(--nova-muted);
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+/* ---------- Assistant ---------- */
+
+.chat-intro {
+    color: var(--nova-muted);
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* ---------- Buttons ---------- */
+
+.stButton > button {
+    border-radius: 8px;
+    border: 1px solid #303744;
+    background: #131821;
+    color: #dce2ea;
+    font-weight: 600;
+    transition: border-color .15s ease,
+                background .15s ease,
+                color .15s ease;
+}
+
+.stButton > button:hover {
+    border-color: var(--nova-blue);
+    background: #17202c;
+    color: #ffffff;
+}
+
+/* ---------- File uploader ---------- */
+
+[data-testid="stFileUploader"] {
+    border: 1px dashed #36404e;
+    border-radius: 10px;
+    background: var(--nova-surface);
+    padding: 4px;
+}
+
+/* ---------- Inputs ---------- */
+
+.stTextInput input,
+.stChatInput input,
+textarea {
+    background: #11161e !important;
+    color: var(--nova-text) !important;
+    border-color: var(--nova-border) !important;
+}
+
+.stTextInput input:focus,
+.stChatInput input:focus,
+textarea:focus {
+    border-color: var(--nova-blue) !important;
+}
+
+/* ---------- Progress ---------- */
+
+.stProgress > div > div > div > div {
+    background: var(--nova-blue);
+}
+
+/* ---------- Metrics ---------- */
+
+[data-testid="stMetricValue"] {
+    color: var(--nova-text);
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--nova-muted);
+}
+
+/* ---------- Dividers ---------- */
+
+hr {
+    border-color: #242b35 !important;
+}
+
+/* ---------- Images ---------- */
+
+img {
+    border-radius: 8px;
+}
+
+/* ---------- Video ---------- */
+
+video {
+    border-radius: 10px;
+    border: 1px solid var(--nova-border-soft);
+}
+
+/* ---------- Status / alerts ---------- */
+
+[data-testid="stAlert"] {
+    border-radius: 8px;
+}
+
+/* ---------- Empty state ---------- */
+
+.nova-empty {
+    text-align: center;
+    padding: 85px 20px 105px 20px;
+}
+
+.nova-empty-icon {
+    color: var(--nova-blue);
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.nova-empty-title {
+    color: #e8edf4;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.nova-empty-text {
+    color: var(--nova-muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--nova-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #303846;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #465161;
+}
