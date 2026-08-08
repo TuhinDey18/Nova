@@ -22,27 +22,6 @@
 
 > **The goal:** transform a large, fragmented set of camera feeds into a focused set of visual leads in seconds.
 
-<p align="center">
-  <svg width="760" height="112" viewBox="0 0 760 112" role="img" aria-label="N.O.V.A. process: upload image, find visual matches, reconstruct journey, investigate">
-    <defs>
-      <linearGradient id="echo-gradient" x1="0" x2="1">
-        <stop offset="0%" stop-color="#7C3AED" />
-        <stop offset="100%" stop-color="#06B6D4" />
-      </linearGradient>
-    </defs>
-    <rect width="760" height="112" rx="16" fill="#0F172A" />
-    <g font-family="Arial, sans-serif" font-size="14" fill="#F8FAFC" text-anchor="middle">
-      <circle cx="92" cy="43" r="24" fill="url(#echo-gradient)" /><text x="92" y="48">1</text><text x="92" y="91" fill="#CBD5E1">Upload</text>
-      <path d="M130 43 H218" stroke="#64748B" stroke-width="3" /><path d="M218 43 l-10 -7 v14 z" fill="#64748B" />
-      <circle cx="282" cy="43" r="24" fill="url(#echo-gradient)" /><text x="282" y="48">2</text><text x="282" y="91" fill="#CBD5E1">Search</text>
-      <path d="M320 43 H408" stroke="#64748B" stroke-width="3" /><path d="M408 43 l-10 -7 v14 z" fill="#64748B" />
-      <circle cx="472" cy="43" r="24" fill="url(#echo-gradient)" /><text x="472" y="48">3</text><text x="472" y="91" fill="#CBD5E1">Track</text>
-      <path d="M510 43 H598" stroke="#64748B" stroke-width="3" /><path d="M598 43 l-10 -7 v14 z" fill="#64748B" />
-      <circle cx="662" cy="43" r="24" fill="url(#echo-gradient)" /><text x="662" y="48">4</text><text x="662" y="91" fill="#CBD5E1">Investigate</text>
-    </g>
-  </svg>
-</p>
-
 ## 🎯 Key capabilities
 
 | Capability | How N.O.V.A. does it |
@@ -56,23 +35,11 @@
 
 ## 🧠 System architecture
 
-```mermaid
-flowchart LR
-    A["CCTV camera videos"] --> B["YOLOv11\nDetection + Tracking"]
-    B --> C["Object crops"]
-    B --> D["Detection metadata\nSQLite + CSV"]
-    C --> E["CLIP visual embeddings"]
-    E --> F[("FAISS vector index")]
-
-    G["Investigator uploads\nquery image"] --> H["CLIP query embedding"]
-    H --> I["FAISS similarity search"]
-    F --> I
-    I --> J["Track grouping +\nchronological timeline"]
-    J --> K["Investigation report"]
-    K --> L["Streamlit evidence dashboard"]
-    K --> M["Ollama assistant"]
-    M --> N["Natural-language answer"]
-```
+<p align="center">
+  <a href="assets/nova-dataflow.svg">
+    <img src="assets/nova-dataflow.svg" width="760" alt="Animated N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
+  </a>
+</p>
 
 ## 🚀 Quick start
 
