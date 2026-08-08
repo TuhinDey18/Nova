@@ -153,8 +153,8 @@ runs/               # YOLO annotated video output
 ## Workflow Diagram
 
 <p align="center">
-  <a href="./assets/workflowdg.svg">
-    <img src="./assets/workflowdg.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
+  <a href="assets/nova-workflowdg.svg">
+    <img src="assets/nova-workflowdg.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
   </a>
 </p>
 
