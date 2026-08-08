@@ -1,6 +1,10 @@
 # [N.O.V.A.](https://github.com/TuhinDey18/Nova) — Networked Observation & Visual Analytics
 
 <p align="center">
+  <img src="./nova-hero.svg" width="100%" alt="N.O.V.A. animated network trace" />
+</p>
+
+<p align="center">
   <strong>Upload one image. Search every camera. Reconstruct the journey.</strong>
 </p>
 
@@ -19,35 +23,35 @@
 
 ## Overview
 
-N.O.V.A. is an AI-assisted visual investigation platform that reduces hours of CCTV review to a focused set of leads. An investigator uploads a query image; N.O.V.A. searches pre-indexed surveillance footage, groups visually similar detections into tracks, reconstructs a time-ordered journey across cameras, and supports follow-up questions about the results.
+N.O.V.A. is an AI-assisted visual investigation platform that turns hours of CCTV review into a focused, explainable set of leads. Upload a query image and N.O.V.A. searches pre-indexed surveillance footage, groups visually similar detections into tracks, reconstructs a time-ordered journey across cameras, and supports follow-up questions about the evidence.
 
-The goal is to transform a large, fragmented set of camera feeds into a small set of explainable, evidence-backed visual leads.
+Its purpose is simple: transform fragmented camera feeds into concise, evidence-backed visual leads that investigators can review with confidence.
 
-## Key capabilities
+## Key Capabilities
 
 | Capability | Implementation |
 | --- | --- |
-| Multi-camera indexing | Object detection and tracking over CCTV video with YOLOv11. |
+| Multi-camera indexing | YOLOv11 object detection and tracking across CCTV footage. |
 | Visual similarity search | CLIP embeddings compared with FAISS cosine-similarity search. |
-| Journey reconstruction | Matches grouped by camera and track, then ordered chronologically. |
+| Journey reconstruction | Camera and track matches grouped, then ordered chronologically. |
 | Evidence-first interface | Representative crops, timestamps, durations, track IDs, and confidence scores. |
-| Conversational investigation | Local Ollama model answers questions from the generated report. |
+| Conversational investigation | A local Ollama model answers questions using the generated report. |
 | Auditable outputs | Detection records persisted to SQLite, CSV, crops, and a FAISS index. |
 
-## System architecture
+## System Architecture
 
 <p align="center">
   <a href="assets/nova-system.svg">
-    <img src="assets/nova-system.svg" width="760" alt="N.O.V.A. system architecture: offline CCTV indexing (YOLO detection, crops, CLIP embeddings, FAISS index), the live investigation pipeline (SearchEngine, InvestigationEngine, ReportGenerator) rendered by the Streamlit console, the Ollama-backed debrief with footage playback, data stores, and the demo/live failsafe modes." />
+    <img src="assets/nova-system.svg" width="760" alt="N.O.V.A. system architecture: offline CCTV indexing with YOLO detection, crops, CLIP embeddings, and a FAISS index; a live investigation pipeline using SearchEngine, InvestigationEngine, and ReportGenerator; a Streamlit console; an Ollama-backed debrief; footage playback; data stores; and demo/live failsafe modes." />
   </a>
 </p>
 
-## Quick start
+## Quick Start
 
 ### Prerequisites
 
 - Python 3.11+
-- [Ollama](https://ollama.com) (optional, required for the debrief assistant)
+- [Ollama](https://ollama.com) — optional; required only for the debrief assistant
 
 ### 1. Clone and create an environment
 
@@ -78,14 +82,14 @@ python -m pip install -r requirements.txt
 
 ### 3. Set up the local assistant (optional)
 
-The debrief assistant runs on Ollama. Install it from [ollama.com](https://ollama.com), then pull the model:
+The debrief assistant uses Ollama. Install it from [ollama.com](https://ollama.com), then pull and serve the model:
 
 ```bash
 ollama pull llama3.2
 ollama serve
 ```
 
-If Ollama is not available, the application still runs; the assistant returns a clear notice instead of failing.
+If Ollama is unavailable, the application still runs. The assistant returns a clear notice rather than failing.
 
 ### 4. Launch the dashboard
 
@@ -93,13 +97,13 @@ If Ollama is not available, the application still runs; the assistant returns a 
 streamlit run app.py
 ```
 
-Open the URL shown by Streamlit, upload a target photo, and select **Initiate Network Trace**.
+Open the URL shown by Streamlit, upload a target photo, then select **Initiate Network Trace**.
 
-> Note: the first launch builds the FAISS index and loads the CLIP embedding model, which can take a few minutes.
+> **Note:** The first launch builds the FAISS index and loads the CLIP embedding model, which can take a few minutes.
 
-## Demo and preview mode
+## Demo and Preview Mode
 
-To preview the interface without installing the full investigation stack or Ollama, set the `NOVA_DEMO_MODE` environment variable:
+To preview the interface without the full investigation stack or Ollama, set the `NOVA_DEMO_MODE` environment variable.
 
 **Windows (PowerShell)**
 
@@ -114,9 +118,9 @@ streamlit run app.py
 NOVA_DEMO_MODE=1 streamlit run app.py
 ```
 
-In demo mode, timeline events and assistant replies are clearly labelled as illustrative previews. If a live backend dependency cannot be loaded at startup, the application degrades gracefully to this preview mode rather than failing to render.
+In demo mode, timeline events and assistant replies are clearly labelled as illustrative previews. If a live backend dependency cannot load at startup, the application degrades gracefully to preview mode instead of failing to render.
 
-## Indexing a case
+## Indexing a Case
 
 Place one or more `.mp4` videos in a case folder, then run the case processor. It detects and tracks objects, saves visual crops, writes detection records, and builds the FAISS index used by the application.
 
@@ -137,31 +141,31 @@ faiss/metadata.pkl  # metadata paired with vectors
 runs/               # YOLO annotated video output
 ```
 
-## Investigation workflow
+## Investigation Workflow
 
 1. Upload a reference image of a person or object.
 2. Search the visual index for the closest matching detections.
 3. Group raw frame matches into camera-specific tracks.
 4. Reconstruct a chronological journey across all matching cameras.
 5. Review supporting crops, times, durations, and similarity scores.
-6. Ask N.O.V.A. questions such as "Where was the subject first seen?"
+6. Ask N.O.V.A. questions such as, “Where was the subject first seen?”
 
-## Workflow diagram
+## Workflow Diagram
 
 <p align="center">
-  <a href="assets/nova-dataflowdg.svg">
-    <img src="assets/nova-dataflowdg.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
+  <a href="./wflow.svg">
+    <img src="./wflow.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
   </a>
 </p>
 
-## Deployment notes
+## Deployment Notes
 
 - Run `python -m pip install -r requirements.txt` on the target host.
-- The heavy dependencies (PyTorch, FAISS, CLIP, YOLO) are required for live tracing. If any cannot be loaded, the app falls back to labeled preview mode with a warning banner.
-- The assistant requires a reachable Ollama service with the configured model pulled. Without it, the assistant reports that the service is unavailable.
-- Set `NOVA_DEMO_MODE=1` for a UI-only deployment that needs no model weights or databases.
+- PyTorch, FAISS, CLIP, and YOLO are required for live tracing. If one cannot load, the app falls back to labelled preview mode and displays a warning banner.
+- The assistant requires a reachable Ollama service with the configured model already pulled. If it is unavailable, the app reports this clearly.
+- Set `NOVA_DEMO_MODE=1` for a UI-only deployment that requires no model weights or databases.
 
-## Tech stack
+## Tech Stack
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python" />
@@ -175,17 +179,17 @@ runs/               # YOLO annotated video output
 
 ## Roadmap
 
-- Filter search results by object class and camera
-- Use track-level, cross-camera ReID instead of frame-level matches
-- Add a floor-plan / camera-map journey visualization
-- Add source-video jump links at each event timestamp
-- Support vehicle attributes and license-plate OCR
-- Add investigator feedback: same subject / not the same subject
-- Add privacy controls, retention rules, and comprehensive audit logs
+- Filter search results by object class and camera.
+- Use track-level, cross-camera ReID instead of frame-level matches.
+- Add a floor-plan or camera-map journey visualization.
+- Add source-video jump links at each event timestamp.
+- Support vehicle attributes and license-plate OCR.
+- Add investigator feedback: same subject / not the same subject.
+- Add privacy controls, retention rules, and comprehensive audit logs.
 
-## Responsible use
+## Responsible Use
 
-N.O.V.A. produces investigative leads, not identity confirmation. Visual similarity can be wrong or biased, especially with poor imagery, occlusion, or changes in appearance. Every result should be reviewed by a trained human, used only with appropriate authorization, and handled according to applicable privacy and surveillance laws.
+N.O.V.A. produces investigative leads, not identity confirmation. Visual similarity can be wrong or biased, especially with poor imagery, occlusion, or changes in appearance. Every result must be reviewed by a trained human, used only with appropriate authorization, and handled in accordance with applicable privacy and surveillance laws.
 
 ---
 
