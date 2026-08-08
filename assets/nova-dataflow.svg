@@ -1,1 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">N.O.V.A. animated data-flow diagram</title>
+  <desc id="desc">CCTV videos are detected, cropped, embedded and indexed. A query image is embedded, searched against the index, then used to produce a timeline, evidence dashboard and assistant response.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827" />
+      <stop offset="1" stop-color="#172554" />
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B5CF6" />
+      <stop offset="1" stop-color="#6366F1" />
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE" />
+      <stop offset="1" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34D399" />
+      <stop offset="1" stop-color="#10B981" />
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#A78BFA" /></marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#22D3EE" /></marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#34D399" /></marker>
+    <style>
+      .heading { font-family: Arial, Helvetica, sans-serif; font-weight: 700; fill: #F8FAFC; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 23px; fill: #F8FAFC; text-anchor: middle; }
+      .detail { font-family: Arial, Helvetica, sans-serif; font-size: 16px; fill: #CBD5E1; text-anchor: middle; }
+      .section { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 3px; fill: #A5B4FC; }
+      .node { stroke: #475569; stroke-width: 2; }
+      .flow { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 12 14; animation: dash 1.5s linear infinite; }
+      .pulse { animation: pulse 2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes dash { to { stroke-dashoffset: -52; } }
+      @keyframes pulse { 50% { transform: scale(1.045); } }
+      @media (prefers-reduced-motion: reduce) { .flow, .pulse { animation: none; } }
+    </style>
+  </defs>
 
+  <rect width="1200" height="1200" rx="48" fill="url(#background)" />
+  <path d="M65 85 H1135" stroke="#334155" stroke-width="2" />
+  <text x="80" y="60" class="heading" font-size="33">N.O.V.A.</text>
+  <text x="300" y="59" class="heading" font-size="19" fill="#94A3B8">NETWORKED OBSERVATION &amp; VISUAL ANALYTICS</text>
+  <circle cx="1110" cy="52" r="8" fill="#34D399" filter="url(#glow)"><animate attributeName="opacity" values="1;.35;1" dur="1.5s" repeatCount="indefinite" /></circle>
+  <text x="1082" y="58" class="detail" font-size="13">LIVE FLOW</text>
+
+  <text x="95" y="145" class="section">OFFLINE VIDEO INDEXING</text>
+  <text x="95" y="698" class="section">LIVE INVESTIGATION</text>
+
+  <!-- Indexing flow -->
+  <path d="M300 270 H390" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
+  <path d="M590 270 H680" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
+  <path d="M880 270 H970" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
+  <path d="M1050 350 V470 H865" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
+  <path d="M490 350 V430" class="flow" stroke="#A78BFA" marker-end="url(#arrow-violet)" />
+
+  <g class="pulse">
+    <rect x="100" y="190" width="200" height="160" rx="24" fill="#1E1B4B" class="node" />
+    <rect x="100" y="190" width="200" height="9" rx="5" fill="url(#violet)" />
+    <text x="200" y="252" class="label">CCTV Videos</text>
+    <text x="200" y="281" class="detail">camera feeds</text>
+    <text x="200" y="307" class="detail">.mp4 evidence</text>
+  </g>
+  <g class="pulse" style="animation-delay:.2s">
+    <rect x="390" y="190" width="200" height="160" rx="24" fill="#1E1B4B" class="node" />
+    <rect x="390" y="190" width="200" height="9" rx="5" fill="url(#violet)" />
+    <text x="490" y="245" class="label">YOLOv11</text>
+    <text x="490" y="276" class="detail">detection +</text>
+    <text x="490" y="302" class="detail">object tracking</text>
+  </g>
+  <g class="pulse" style="animation-delay:.4s">
+    <rect x="680" y="190" width="200" height="160" rx="24" fill="#1E1B4B" class="node" />
+    <rect x="680" y="190" width="200" height="9" rx="5" fill="url(#violet)" />
+    <text x="780" y="252" class="label">Object Crops</text>
+    <text x="780" y="281" class="detail">frame evidence</text>
+    <text x="780" y="307" class="detail">+ metadata</text>
+  </g>
+  <g class="pulse" style="animation-delay:.6s">
+    <rect x="970" y="190" width="160" height="160" rx="24" fill="#1E1B4B" class="node" />
+    <rect x="970" y="190" width="160" height="9" rx="5" fill="url(#violet)" />
+    <text x="1050" y="252" class="label">CLIP</text>
+    <text x="1050" y="281" class="detail">512-D visual</text>
+    <text x="1050" y="307" class="detail">embeddings</text>
+  </g>
+  <g class="pulse" style="animation-delay:.7s">
+    <rect x="100" y="430" width="420" height="105" rx="24" fill="#1E1B4B" class="node" />
+    <rect x="100" y="430" width="420" height="9" rx="5" fill="url(#violet)" />
+    <text x="310" y="475" class="label">Evidence Records</text>
+    <text x="310" y="506" class="detail">SQLite audit trail · CSV exports · crops</text>
+  </g>
+
+  <!-- Shared search index -->
+  <g class="pulse" style="animation-delay:.8s">
+    <rect x="665" y="410" width="400" height="150" rx="26" fill="#083344" stroke="#22D3EE" stroke-width="3" />
+    <ellipse cx="865" cy="450" rx="80" ry="23" fill="#164E63" stroke="#67E8F9" stroke-width="2" />
+    <path d="M785 450 V510 C785 523 821 534 865 534 C909 534 945 523 945 510 V450" fill="#164E63" stroke="#67E8F9" stroke-width="2" />
+    <ellipse cx="865" cy="510" rx="80" ry="23" fill="#164E63" stroke="#67E8F9" stroke-width="2" />
+    <text x="865" y="478" class="label">FAISS INDEX</text>
+    <text x="865" y="583" class="detail">visual memory for every camera</text>
+  </g>
+
+  <!-- Query and output flow -->
+  <path d="M300 820 H410" class="flow" stroke="#22D3EE" marker-end="url(#arrow-cyan)" />
+  <path d="M610 820 H690 V635 H800" class="flow" stroke="#22D3EE" marker-end="url(#arrow-cyan)" />
+  <path d="M865 710 V780" class="flow" stroke="#34D399" marker-end="url(#arrow-green)" />
+  <path d="M865 930 V1000 H555" class="flow" stroke="#34D399" marker-end="url(#arrow-green)" />
+  <path d="M865 930 V1000 H975" class="flow" stroke="#34D399" marker-end="url(#arrow-green)" />
+
+  <g class="pulse" style="animation-delay:.1s">
+    <rect x="100" y="740" width="200" height="160" rx="24" fill="#083344" class="node" />
+    <rect x="100" y="740" width="200" height="9" rx="5" fill="url(#cyan)" />
+    <text x="200" y="803" class="label">Query Image</text>
+    <text x="200" y="832" class="detail">investigator</text>
+    <text x="200" y="858" class="detail">uploads a lead</text>
+  </g>
+  <g class="pulse" style="animation-delay:.3s">
+    <rect x="410" y="740" width="200" height="160" rx="24" fill="#083344" class="node" />
+    <rect x="410" y="740" width="200" height="9" rx="5" fill="url(#cyan)" />
+    <text x="510" y="803" class="label">Query CLIP</text>
+    <text x="510" y="832" class="detail">same visual</text>
+    <text x="510" y="858" class="detail">embedding space</text>
+  </g>
+  <g class="pulse" style="animation-delay:.5s">
+    <rect x="700" y="780" width="330" height="150" rx="26" fill="#064E3B" stroke="#34D399" stroke-width="3" />
+    <text x="865" y="838" class="label">MATCH + RECONSTRUCT</text>
+    <text x="865" y="870" class="detail">similarity search · track grouping</text>
+    <text x="865" y="896" class="detail">chronological journey</text>
+  </g>
+  <g class="pulse" style="animation-delay:.7s">
+    <rect x="315" y="1000" width="240" height="130" rx="24" fill="#064E3B" class="node" />
+    <rect x="315" y="1000" width="240" height="9" rx="5" fill="url(#green)" />
+    <text x="435" y="1056" class="label">Evidence Dashboard</text>
+    <text x="435" y="1085" class="detail">timeline · crops · scores</text>
+  </g>
+  <g class="pulse" style="animation-delay:.9s">
+    <rect x="975" y="1000" width="160" height="130" rx="24" fill="#064E3B" class="node" />
+    <rect x="975" y="1000" width="160" height="9" rx="5" fill="url(#green)" />
+    <text x="1055" y="1056" class="label">Assistant</text>
+    <text x="1055" y="1085" class="detail">answers</text>
+  </g>
+
+  <g fill="#A78BFA" filter="url(#glow)"><circle r="7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M300,270 H390 H590 H680 H880 H970" /></circle></g>
+  <g fill="#22D3EE" filter="url(#glow)"><circle r="7"><animateMotion dur="2s" repeatCount="indefinite" path="M300,820 H410 H610 H690 V635 H800" /></circle></g>
+  <g fill="#34D399" filter="url(#glow)"><circle r="7"><animateMotion dur="1.8s" repeatCount="indefinite" path="M865,710 V780 V930 V1000 H555" /></circle></g>
+  <g fill="#34D399" filter="url(#glow)"><circle r="7"><animateMotion dur="1.8s" begin=".6s" repeatCount="indefinite" path="M865,710 V780 V930 V1000 H975" /></circle></g>
+</svg>
