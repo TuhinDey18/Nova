@@ -45,7 +45,7 @@ The goal is to transform a large, fragmented set of camera feeds into a small se
 
 <p align="center">
   <a href="assets/nova-workflowdg.svg">
-    <img src="assets/nova-workflow.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
+    <img src="assets/nova-workflowdg.svg" width="760" alt="N.O.V.A. data-flow diagram: CCTV videos are indexed with YOLO and CLIP; a query image searches FAISS to produce a timeline, dashboard, and assistant response." />
   </a>
 </p>
 
