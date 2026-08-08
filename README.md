@@ -52,8 +52,8 @@ The goal is to transform a large, fragmented set of camera feeds into a small se
 ### 1. Clone and create an environment
 
 ```bash
-git clone https://github.com/TuhinDey18/ECHO.git
-cd ECHO
+git clone https://github.com/TuhinDey18/Nova.git
+cd Nova
 
 python -m venv venv
 ```
