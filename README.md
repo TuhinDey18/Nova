@@ -1,7 +1,7 @@
 # [N.O.V.A.](https://github.com/TuhinDey18/Nova) — Networked Observation & Visual Analytics
 
 <p align="center">
-  <img src="./nova-hero.svg" width="100%" alt="N.O.V.A. animated network trace" />
+  <img src="./assets/nova-hero.svg" width="100%" alt="N.O.V.A. animated network trace" />
 </p>
 
 <p align="center">
@@ -153,8 +153,8 @@ runs/               # YOLO annotated video output
 ## Workflow Diagram
 
 <p align="center">
-  <a href="./wflow.svg">
-    <img src="./wflow.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
+  <a href="./workflowdg.svg">
+    <img src="./workflowdg.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
   </a>
 </p>
 
