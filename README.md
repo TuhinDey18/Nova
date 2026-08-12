@@ -17,7 +17,56 @@
   <img src="https://img.shields.io/badge/Ollama-Local%20LLM-111827" alt="Ollama" />
   <img src="https://img.shields.io/badge/SQLite-Audit%20Store-003B57?logo=sqlite&logoColor=white" alt="SQLite" />
   <img src="https://img.shields.io/badge/GitHub-TuhinDey18-181717?logo=github&logoColor=white" alt="GitHub" />
+  <img src="https://img.shields.io/badge/PIVOT%20POINT-Winners-F5A623" alt="PIVOT POINT Hackathon Winners" />
 </p>
+
+---
+
+## 🏆 PIVOT POINT Hackathon — Winners
+
+<p align="center">
+  <img src="https://img.shields.io/badge/PIVOT%20POINT-Hackathon%20Winners-F5A623?style=for-the-badge" alt="PIVOT POINT Hackathon Winners" />
+  <img src="https://img.shields.io/badge/Organised%20by-CSI%20%26%20IEM%20Kolkata-2563EB?style=for-the-badge" alt="Organised by Computer Society of India and IEM Kolkata" />
+</p>
+
+<p align="center">
+  <strong>N.O.V.A. won the PIVOT POINT Hackathon</strong><br />
+  organised by the <strong>Computer Society of India (CSI)</strong> and <strong>IEM Kolkata</strong>.
+</p>
+
+<p align="center">
+  <a href="assets/trophy.jpeg">
+    <img src="assets/trophy.jpeg" width="460" alt="N.O.V.A. PIVOT POINT hackathon winner trophy" />
+  </a><br />
+  <sub>Click the trophy to view the full photo.</sub>
+</p>
+
+### Winning team certificates
+
+<table>
+  <tr>
+    <td align="center"><a href="assets/cert1.jpeg"><img src="assets/cert1.jpeg" width="260" alt="Winning team certificate 1" /></a></td>
+    <td align="center"><a href="assets/cert2.jpeg"><img src="assets/cert2.jpeg" width="260" alt="Winning team certificate 2" /></a></td>
+    <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpeg" width="260" alt="Winning team certificate 3" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>TEAM MEMBER 01</sub></td>
+    <td align="center"><sub>TEAM MEMBER 02</sub></td>
+    <td align="center"><sub>TEAM MEMBER 03</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="assets/cert4.jpeg"><img src="assets/cert4.jpeg" width="260" alt="Winning team certificate 4" /></a></td>
+    <td align="center"><a href="assets/cert5.jpeg"><img src="assets/cert5.jpeg" width="260" alt="Winning team certificate 5" /></a></td>
+    <td align="center"><a href="assets/cert6.jpeg"><img src="assets/cert6.jpeg" width="260" alt="Winning team certificate 6" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>TEAM MEMBER 04</sub></td>
+    <td align="center"><sub>TEAM MEMBER 05</sub></td>
+    <td align="center"><sub>TEAM MEMBER 06</sub></td>
+  </tr>
+</table>
+
+<p align="center"><sub>Click any certificate to view it in full resolution.</sub></p>
 
 ---
 
@@ -41,8 +90,8 @@ Its purpose is simple: transform fragmented camera feeds into concise, evidence-
 ## System Architecture
 
 <p align="center">
-  <a href="assets/nova-system.svg">
-    <img src="assets/nova-system.svg" width="760" alt="N.O.V.A. system architecture: offline CCTV indexing with YOLO detection, crops, CLIP embeddings, and a FAISS index; a live investigation pipeline using SearchEngine, InvestigationEngine, and ReportGenerator; a Streamlit console; an Ollama-backed debrief; footage playback; data stores; and demo/live failsafe modes." />
+  <a href="assets/nova-architecture.svg">
+    <img src="assets/nova-architecture.svg" width="760" alt="N.O.V.A. system architecture: offline CCTV indexing with YOLO detection, crops, CLIP embeddings, and a FAISS index; a live investigation pipeline using SearchEngine, InvestigationEngine, and ReportGenerator; a Streamlit console; an Ollama-backed debrief; footage playback; data stores; and demo/live failsafe modes." />
   </a>
 </p>
 
@@ -148,13 +197,13 @@ runs/               # YOLO annotated video output
 3. Group raw frame matches into camera-specific tracks.
 4. Reconstruct a chronological journey across all matching cameras.
 5. Review supporting crops, times, durations, and similarity scores.
-6. Ask N.O.V.A. questions such as, “Where was the subject first seen?”
+6. Ask N.O.V.A. questions such as, "Where was the subject first seen?"
 
 ## Workflow Diagram
 
 <p align="center">
-  <a href="assets/nova-workflowdg.svg">
-    <img src="assets/nova-workflowdg.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
+  <a href="assets/nova-workflow.svg">
+    <img src="assets/nova-workflow.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
   </a>
 </p>
 
