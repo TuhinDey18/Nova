@@ -61,7 +61,7 @@
   </tr>
   <tr>
     <td align="center"><sub>TUHIN DEY</sub></td>
-    <td align="center"><sub>DARRSHAN RAJ</sub></td>
+    <td align="center"><sub>DARSHAN RAJ</sub></td>
     <td align="center"><sub>DEVJYOTI MISRA</sub></td>
   </tr>
 </table>
