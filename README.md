@@ -36,7 +36,7 @@
 
 <p align="center">
   <a href="assets/trophy.jpeg">
-    <img src="assets/trophy.jpeg" width="460" alt="N.O.V.A. PIVOT POINT hackathon winner trophy" />
+    <img src="assets/trophy.jpg" width="460" alt="N.O.V.A. PIVOT POINT hackathon winner trophy" />
   </a><br />
   <sub>Click the trophy to view the full photo.</sub>
 </p>
