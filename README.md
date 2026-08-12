@@ -55,9 +55,9 @@
     <td align="center"><sub>SUBHAM MUSIB</sub></td>
   </tr>
   <tr>
-    <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpg" width="260" alt="Winning team certificate 3" /></a></td>
-    <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpg" width="260" alt="Winning team certificate 3" /></a></td>
-    <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpg" width="260" alt="Winning team certificate 3" /></a></td>
+    <td align="center"><a href="assets/cert4.jpeg"><img src="assets/cert4.jpg" width="260" alt="Winning team certificate 3" /></a></td>
+    <td align="center"><a href="assets/cert5.jpeg"><img src="assets/cert5.jpg" width="260" alt="Winning team certificate 3" /></a></td>
+    <td align="center"><a href="assets/cert6.jpeg"><img src="assets/cert6.jpg" width="260" alt="Winning team certificate 3" /></a></td>
   </tr>
   <tr>
     <td align="center"><sub>TUHIN DEY</sub></td>
