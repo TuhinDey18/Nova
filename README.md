@@ -249,4 +249,4 @@ N.O.V.A. produces investigative leads, not identity confirmation. Visual similar
 
 ## PPT
 
-[NOVA-PPT](https://docs.google.com/presentation/d/1g84loO77ZarUxJ9k9hkVWW-PqcmG4HS-/edit?usp=drivesdk&ouid=111352118999025787129&rtpof=true&sd=true)
+[NOVA-PPT](https://drive.google.com/file/d/1KHH62VBGrcPREEZD2dIIFkexOt95E8yq/view?usp=drivesdk)
