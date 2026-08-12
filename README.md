@@ -56,8 +56,8 @@
   </tr>
   <tr>
     <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpg" width="260" alt="Winning team certificate 3" /></a></td>
-    <td align="center"><a href="assets/cert5.jpg"><img src="assets/cert5.jpeg" width="260" alt="Winning team certificate 5" /></a></td>
-    <td align="center"><a href="assets/cert6.jpg"><img src="assets/cert6.jpeg" width="260" alt="Winning team certificate 6" /></a></td>
+    <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpg" width="260" alt="Winning team certificate 3" /></a></td>
+    <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpg" width="260" alt="Winning team certificate 3" /></a></td>
   </tr>
   <tr>
     <td align="center"><sub>TUHIN DEY</sub></td>
