@@ -70,6 +70,7 @@
 
 ---
 
+
 ## Overview
 
 N.O.V.A. is an AI-assisted visual investigation platform that turns hours of CCTV review into a focused, explainable set of leads. Upload a query image and N.O.V.A. searches pre-indexed surveillance footage, groups visually similar detections into tracks, reconstructs a time-ordered journey across cameras, and supports follow-up questions about the evidence.
@@ -90,8 +91,8 @@ Its purpose is simple: transform fragmented camera feeds into concise, evidence-
 ## System Architecture
 
 <p align="center">
-  <a href="assets/nova-architecture.svg">
-    <img src="assets/nova-architecture.svg" width="760" alt="N.O.V.A. system architecture: offline CCTV indexing with YOLO detection, crops, CLIP embeddings, and a FAISS index; a live investigation pipeline using SearchEngine, InvestigationEngine, and ReportGenerator; a Streamlit console; an Ollama-backed debrief; footage playback; data stores; and demo/live failsafe modes." />
+  <a href="assets/nova-system.svg">
+    <img src="assets/nova-system.svg" width="760" alt="N.O.V.A. system architecture: offline CCTV indexing with YOLO detection, crops, CLIP embeddings, and a FAISS index; a live investigation pipeline using SearchEngine, InvestigationEngine, and ReportGenerator; a Streamlit console; an Ollama-backed debrief; footage playback; data stores; and demo/live failsafe modes." />
   </a>
 </p>
 
@@ -197,13 +198,13 @@ runs/               # YOLO annotated video output
 3. Group raw frame matches into camera-specific tracks.
 4. Reconstruct a chronological journey across all matching cameras.
 5. Review supporting crops, times, durations, and similarity scores.
-6. Ask N.O.V.A. questions such as, "Where was the subject first seen?"
+6. Ask N.O.V.A. questions such as, “Where was the subject first seen?”
 
 ## Workflow Diagram
 
 <p align="center">
-  <a href="assets/nova-workflow.svg">
-    <img src="assets/nova-workflow.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
+  <a href="assets/nova-workflowdg.svg">
+    <img src="assets/nova-workflowdg.svg" width="500" alt="Animated N.O.V.A. workflow: footage is captured, detected, cropped, embedded, and indexed; queries search the database and build a timeline; a prompt uses the report as context for LLM processing and a final answer." />
   </a>
 </p>
 
