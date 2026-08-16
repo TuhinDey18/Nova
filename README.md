@@ -33,44 +33,6 @@
   <strong>N.O.V.A. won the PIVOT POINT Hackathon</strong><br />
   organised by the <strong>Computer Society of India (CSI)</strong> and <strong>IEM Kolkata</strong>.
 </p>
-
-<p align="center">
-  <a href="assets/trophy.jpeg">
-    <img src="assets/trophy.jpg" width="460" alt="N.O.V.A. PIVOT POINT hackathon winner trophy" />
-  </a><br />
-  <sub>Click the trophy to view the full photo.</sub>
-</p>
-
-### Winning team certificates
-
-<table>
-  <tr>
-    <td align="center"><a href="assets/cert1.jpeg"><img src="assets/cert1.jpg" width="260" alt="Winning team certificate 1" /></a></td>
-    <td align="center"><a href="assets/cert2.jpeg"><img src="assets/cert2.jpg" width="260" alt="Winning team certificate 2" /></a></td>
-    <td align="center"><a href="assets/cert3.jpeg"><img src="assets/cert3.jpg" width="260" alt="Winning team certificate 3" /></a></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>ANWESH BANERJEE</sub></td>
-    <td align="center"><sub>ANSHUM KUMARI</sub></td>
-    <td align="center"><sub>SUBHAM MUSIB</sub></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="assets/cert4.jpeg"><img src="assets/cert4.jpg" width="260" alt="Winning team certificate 3" /></a></td>
-    <td align="center"><a href="assets/cert5.jpeg"><img src="assets/cert5.jpg" width="260" alt="Winning team certificate 3" /></a></td>
-    <td align="center"><a href="assets/cert6.jpeg"><img src="assets/cert6.jpg" width="260" alt="Winning team certificate 3" /></a></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>TUHIN DEY</sub></td>
-    <td align="center"><sub>DARSHAN RAJ</sub></td>
-    <td align="center"><sub>DEVJYOTI MISRA</sub></td>
-  </tr>
-</table>
-
-<p align="center"><sub>Click any certificate to view it in full resolution.</sub></p>
-
----
-
-
 ## Overview
 
 N.O.V.A. is an AI-assisted visual investigation platform that turns hours of CCTV review into a focused, explainable set of leads. Upload a query image and N.O.V.A. searches pre-indexed surveillance footage, groups visually similar detections into tracks, reconstructs a time-ordered journey across cameras, and supports follow-up questions about the evidence.
