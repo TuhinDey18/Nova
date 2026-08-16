@@ -33,6 +33,7 @@
   <strong>N.O.V.A. won the PIVOT POINT Hackathon</strong><br />
   organised by the <strong>Computer Society of India (CSI)</strong> and <strong>IEM Kolkata</strong>.
 </p>
+
 ## Overview
 
 N.O.V.A. is an AI-assisted visual investigation platform that turns hours of CCTV review into a focused, explainable set of leads. Upload a query image and N.O.V.A. searches pre-indexed surveillance footage, groups visually similar detections into tracks, reconstructs a time-ordered journey across cameras, and supports follow-up questions about the evidence.
